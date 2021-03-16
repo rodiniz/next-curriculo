@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 const dev = process.env.NODE_ENV !== 'production';
-const server = dev ? 'http://localhost:3000' : 'https://curriculo.app.smartmock.io';
+const server = dev ? 'http://localhost:3000' : `https://{${process.env.VERCEL_URL}}`;
 const fetcher = (url) => fetch(url).then((r) => r.json());
 export async function getStaticProps() {
   const curriculo = await fetcher(`${server}/api/curriculo`)
