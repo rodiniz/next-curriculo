@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 const dev = process.env.NODE_ENV !== 'production';
-const server = dev ? 'http://localhost:3000' : 'https://your_deployment.server.com';
+const server = dev ? 'http://localhost:3000' : '';
 const fetcher = (url) => fetch(url).then((r) => r.json());
 export async function getStaticProps() {
   const curriculo = await fetcher(`${server}/api/curriculo`)
